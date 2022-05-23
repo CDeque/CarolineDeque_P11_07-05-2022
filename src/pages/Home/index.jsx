@@ -3,17 +3,20 @@ import Cards from "../../components/Cards";
 import BackgroundImage from "../../assets/images/background-image.png"
 import styled from "styled-components";
 import colors from "../../utils/style/colors";
-import React, {useEffect, useState} from "react"
-import axios from "axios"
+import useAxios from "../../utils/hooks";
 
 
 const Section= styled.section`
 padding: 20px 0px;
+@media(max-width: 375px){
+   padding:5px 0px;
+}
 `
 const BackgroundContainer= styled.div `
 display: flex;
 justify-content: center;
 align-items: center;
+
 `
 const BackImage= styled.img `
 width: 1440px;
@@ -21,13 +24,28 @@ height: 225px;
 border-radius: 25px;
 object-fit: cover;
 
+
+@media(max-width: 375px){
+    width:335px;
+    height:111px;
+    border-radius: 10px;
+}
+
 `
 
 const BackgroundText= styled.p `
 position: absolute;
 font-size: 48px;
 font-weight: 500;
-color:${colors.white}
+color:${colors.white};
+
+
+@media(max-width: 375px){
+    width: 217px;
+    font-size: 24px;
+    left: 10%;
+
+}
 `
 
 const GalleryContainer= styled.div`
@@ -40,18 +58,21 @@ gap:2rem;
 background-color: ${colors.lightGrey};
 
 
+@media(max-width: 375px){
+   flex-direction: column;
+   padding: 20px 20px ;
+
+   background-color: ${colors.white};
+
+}
+
 `
 export default function Home(){
 
     
-    const [data, setData]= useState([])
-   useEffect (()=>{
-axios.get("./data.json")
-.then((res)=> setData(res.data))
+    const data= useAxios()
 
-   },[])
-
-// console.log(data);
+ console.log(data);
 
 
 
