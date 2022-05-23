@@ -15,6 +15,13 @@ position:relative;
   width:340px;
   height: 340px;
   border-radius: 25px;
+
+  @media(max-width: 375px){
+    position:relative;
+    width:335px;
+    height: 255px;
+    border-radius: 10px;
+}
   
   `
   const CardImage= styled.img`
@@ -22,6 +29,13 @@ position:relative;
   width:340px;
   height: 340px;
   border-radius:25px;
+
+  @media(max-width: 375px){
+    
+    width:335px;
+    height: 255px;
+    border-radius: 10px;
+}
   `
  const CardTitle= styled.p`
  font-size:18px;
@@ -29,7 +43,9 @@ position:relative;
  position: absolute;
  bottom:1rem;
  left: 1rem;
- color: ${colors.white}
+ color: ${colors.white};
+
+
  `
 
 //---- Creation gallery cards ----//

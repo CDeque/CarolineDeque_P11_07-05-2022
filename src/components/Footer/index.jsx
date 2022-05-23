@@ -7,7 +7,7 @@ import colors from "../../utils/style/colors";
 
 const Foot= styled.footer `
 
-padding: 0 30px;
+padding: 0 ;
 `
 const FooterContainer= styled.div`
 padding: 30px;
@@ -22,11 +22,16 @@ const FooterLogo= styled.img`
 width: 122px;
 height: 40px;
 margin: 10px;
+
 `
 const Rights= styled.p `
 margin: 10px
 font-size: 24px;
 color: ${colors.white};
+
+@media(max-width: 375px){
+    font-size: 12px;
+}
 `
 
 // Footer Function
