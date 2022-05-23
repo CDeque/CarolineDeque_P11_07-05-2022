@@ -16,10 +16,7 @@ body{
     margin: 0 auto;
 }
 
-main{
 
-    padding: 30px;
-}
 `
 
 export default function GlobalStyle(){
