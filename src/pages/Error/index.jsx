@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import colors from "../../utils/style/colors"
 
+//------ Error Page Style ------//
 const Section= styled.section`
 margin-top:2rem;
 @media(max-width: 375px){
@@ -9,7 +10,6 @@ margin-top:2rem;
  }
 `
 const ErrorContainer= styled.div`
-
 display:flex;
 flex-direction:column;
 justify-content:center;
@@ -47,18 +47,21 @@ font:weight:500;
     font-size: 14px;
  }
 `
-export default function Error(){
+//------ Error page Function ------//
 
+export default function Error(){
 
 
     return(
 <main className="main">
+
+     {/* Section Error Message */}
         <Section className="section">
             <ErrorContainer className="error_container">
 <ErrorNumber className="error_number">404</ErrorNumber>
 <ErrorText className="error_text">OUPS! La page que vous demandez n'existe pas.</ErrorText>
            
-           
+          {/* link back to homepage */}  
 <BackToHomepage to="/"> 
             <LinkText className="back_to_homepage">Retour vers la page d'accueil</LinkText>
             </BackToHomepage>

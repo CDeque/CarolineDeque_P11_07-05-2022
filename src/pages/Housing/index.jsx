@@ -6,8 +6,9 @@ import Collapse from "../../components/Collapse"
 import styled from "styled-components"
 import colors from "../../utils/style/colors"
 
-const DetailsContainer= styled.div`
+//------ Housing Page Style------//
 
+const DetailsContainer= styled.div`
 display:flex;
 justify-content: space-between;
 
@@ -17,16 +18,15 @@ justify-content: space-between;
    margin: 0 20px;
 }
 `
-
 const HousingInfos= styled.div`
 padding: 20px 0px;
 display: flex;
 flex-direction: column;
 color: ${colors.primary};
+
 @media(max-width: 375px){
  padding-bottom: 10px;
 }
-
 `
 const HousingTitle= styled.h1`
 font-size:36px;
@@ -47,7 +47,6 @@ font-weight:500;
 `
 const HousingTagContainer= styled.ul`
 display:flex;
-
 `
 const HousingTag= styled.li`
 width:115px;
@@ -76,13 +75,11 @@ padding: 20px 0px;
    flex-direction: row-reverse;
    justify-content: space-between;
    padding-top: 10px
-
 }
 `
 const OwnerContainer=styled.div`
 display:flex;
 margin-bottom: 1rem;
-
 `
 const HousingOwner= styled.h2`
 font-size: 18px;
@@ -91,7 +88,6 @@ width:80px;
 padding-top:12px;
 text-align: right;
 color:${colors.primary};
-
 
 @media(max-width: 375px){
    font-size:12px;
@@ -119,13 +115,14 @@ justify-content:space-between;
 const EquipmentList= styled.li`
 list-style-type: none;
 `
-
+//------Housing Page Function ------//
 export default function Housing(){
-  // on récupère la data
+
+  //const to get the data from the hook useAxios()
    const data= useAxios()
    //console.log(data);
   
-// pour récupérer l'id dans l'url est la comparer avec l'id du .json pour l'afficher 
+// To get the id from the URL & compared it with .json one
    const{id}= useParams();
    const housing= data.find((d)=>d.id===id)
 
@@ -133,11 +130,16 @@ export default function Housing(){
     return  (
 
        <main>
+           {/* Section Carousel */}
            <section className="carrousel_section">
-{/* condition pour être sur que la data est présente au chargement du composant */}
+
+{/* Condition to make sure that the data is here when charging */}
 {(housing?.pictures)&&<Carousel slides={housing.pictures}/>}
            </section>
+
+            {/* Section info*/}
            <section className="housing_section">
+
      <DetailsContainer className="housing_details">
               < HousingInfos className="housing_infos">
               {(housing?.title)&&<HousingTitle className="housing_name" >{housing.title}</HousingTitle>} 
@@ -155,9 +157,15 @@ export default function Housing(){
             </OwnerContainer>
           {(housing?.rating)&&<Ratings  rating={housing.rating} />}
             </OwnerInfos>
-              </DetailsContainer>      
+              </DetailsContainer>   
+
+               {/* Collapses Container */} 
+                 
 <CollapsesContainer className="housing_description">
 <Collapse title= "Description"className="housing_btn"text={housing?.description}  />
+
+ {/* Changing the container type equipment data is a list */}
+ 
 <Collapse   title= "Equipements" className="housing_btn" type="housing" text={(housing?.equipments)&& <ul>
    {housing?.equipments.map((equipment, index)=>(
   

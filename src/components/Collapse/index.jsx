@@ -4,8 +4,11 @@ import colors from "../../utils/style/colors"
 import ArrowDown from  "../../assets/images/arrow-down.png"
 import ArrowUp from "../../assets/images/arrow-up.png"
 
+  //------ Collapse Style------//
 
-export const CollapseBtn= styled.button`
+ const CollapseBtn= styled.button`
+
+ //to style buttons on about Page//
 &.about_btn{
     width: 1203px;
     @media(max-width: 375px){
@@ -15,6 +18,7 @@ export const CollapseBtn= styled.button`
         font-size: 13px;
      }
 }
+//to style buttons on housing page//
 
 &.housing_btn {
     width:650px;
@@ -35,7 +39,6 @@ export const CollapseBtn= styled.button`
         }
      }  
 }
-
 height: 47px;
 border:none;
 margin-bottom:30px;
@@ -88,11 +91,18 @@ color:${colors.primary};
    
  }
 `
+
+//------Collapse Function------//
+
 export default function  Collapse({title, text, className}){
+
 const [isOpen, setIsOpen]= useState(false)
 
     return(
 <div className="collapse">
+    
+     {/* condition to check if the collapse is open or not and display the text container or not */}
+
         <CollapseBtn className={className} onClick={()=>setIsOpen(!isOpen)} >{title} {isOpen ? (<ArrowExpanded src={ArrowUp} alt="arrow-up" className="arrow"   />): (<Arrow src={ArrowDown} alt="arrow-down" className="arrow"   />)} </CollapseBtn>
         {isOpen && <CollapseText className="collapse_text">{text }</CollapseText>}
         

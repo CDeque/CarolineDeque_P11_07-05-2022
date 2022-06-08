@@ -1,3 +1,5 @@
+//------ variables color ------//
+
 const colors= {
 
     primary: "#FF6060",

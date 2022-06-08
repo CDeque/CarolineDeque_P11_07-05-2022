@@ -1,6 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 
-
+//------ to set a global style for every page ------//
 const Style = createGlobalStyle`
 
 

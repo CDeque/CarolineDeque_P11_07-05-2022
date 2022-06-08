@@ -1,9 +1,10 @@
 import { useState } from "react"
-
 import styled from "styled-components"
 import ArrowLeft from"../../assets/images/arrow-left.png"
 import ArrowRight from "../../assets/images/arrow-right.png"
 
+
+ //---- Carousel Style----//
 const CarrouselContainer= styled.div`
 display:flex;
 position:relative;
@@ -47,7 +48,12 @@ object-fit:cover;
  }
 `
 
+
+    //------Carousel function------//
+
 export default function Carousel({slides}){
+
+    // functions to navigate through different photos while clicking on previous/next buttons
     const [current, setCurrent]= useState(0)
     const length=slides.length;
 
@@ -61,13 +67,14 @@ export default function Carousel({slides}){
 return(
 
    <CarrouselContainer className="carrousel_container">
+
        <PreviousArrow src={ArrowLeft} alt="arrow-left" className="left-arrow"onClick={previousPicture} />
+
+ {/* map method to display every picture according his index */}
 {slides.map((slide, index)=>
   index===current &&(<CarrouselImage src={slide} alt="img" key={index} />)
      
 )}
-      
-  
       <NextArrow src={ArrowRight} alt="arrow-right" className="right-arrow" onClick={nextPicture}/>
    </CarrouselContainer>
 )

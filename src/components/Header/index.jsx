@@ -3,8 +3,7 @@ import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import colors from "../../utils/style/colors"
 
-
-// Pour ajouter du style au header pour la nav et les liens
+//------ Header Style ------//
 const NavContainer = styled.header`
 display: flex;
 justify-content: space-between;
@@ -29,10 +28,8 @@ display:flex;
 justify-content: space-between;
 list-style-type: none;
 @media(max-width: 375px){
-    width:130px;
-    
+    width:130px;  
 }
-
 `
 const StyledLink= styled(NavLink)` 
 
@@ -50,7 +47,7 @@ color: ${colors.primary};
 
 
 `
-// fonction header
+//------ Header Function ------//
 export default function Header(){
    return(
 <NavContainer className="navigation">
@@ -58,6 +55,7 @@ export default function Header(){
     <ImageLogo src={Logo} alt="logo Kasa" />
     </NavLink>
 
+ {/* NavBar links */}
     <NavBar className="navbar">
         <StyledLink to= "/"><li>Accueil</li></StyledLink>
         <StyledLink to= "/about"   ><li>A propos</li></StyledLink>

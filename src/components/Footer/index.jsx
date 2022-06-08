@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import colors from "../../utils/style/colors";
 
-// footer Style
+//------ footer Style ------//
 
 const Foot= styled.footer `
 
@@ -34,7 +34,8 @@ color: ${colors.white};
 }
 `
 
-// Footer Function
+//------ Footer Function ------//
+
 export default function Footer(){
 
     return(
